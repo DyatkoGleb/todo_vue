@@ -1,8 +1,8 @@
 <template>
     <div class="form">
         <div class="todo-item__inputs">
-            <my-input v-model="inputValue" :inputValue="title" :inputError="titleError"></my-input>
-            <my-textarea v-model="textareaValue" :textareaValue="description" :descriptionError="descriptionError"></my-textarea>
+            <my-input v-model.trim="inputValue" :inputValue="title" :inputError="titleError"></my-input>
+            <my-textarea v-model.trim="textareaValue" :textareaValue="description" :descriptionError="descriptionError"></my-textarea>
         </div>
 
         <my-button @click="newTodo">Add</my-button>

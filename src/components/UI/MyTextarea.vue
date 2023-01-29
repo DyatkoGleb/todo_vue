@@ -18,12 +18,16 @@ export default {
     },
     data() {
         return {
-            value: this.inputValue
+            value: this.textareaValue
         }
+    },
+    mounted() {
+        this.$refs.textarea.style.height = 0
+        this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 1 + 'px'
     },
 	methods: {
 		updateInput(event) {
-            this.$refs.textarea.classList.remove('textareaError')
+            this.$refs.textarea.classList.remove('textarea-error')
             
             this.value = event.target.value
             
@@ -38,7 +42,7 @@ export default {
     watch: {
         descriptionError(isError) {
             if (isError) {
-                this.$refs.textarea.classList.add('textareaError')
+                this.$refs.textarea.classList.add('textarea-error')
             }
         }
     }
@@ -46,8 +50,8 @@ export default {
 </script>
 
 <style scoped>
-.textareaError {
-    border-bottom: 1px solid #800000;
+.textarea-error {
+    border-bottom: 1px solid #800000 !important;
 }
 textarea {
     display: block;

@@ -9,7 +9,12 @@
         >
             <div>
                 <input class="todo-item__title" v-model.trim="title">
-                <input class="todo-item__description" v-model.trim="description">
+                <my-textarea 
+                    class="todo-item__description" 
+                    v-model.trim="description" 
+                    :textareaValue="description" 
+                    :descriptionError="descriptionError"
+                ></my-textarea>
             </div>
             
             <div>
@@ -30,10 +35,11 @@
 </template>
 
 <script>
+import MyTextarea from '@/components/UI/MyTextarea'
 import MyButton from '@/components/UI/MyButton'
 
 export default {
-    components: { MyButton },
+    components: { MyTextarea, MyButton },
     data() {
         return {
             id: this.todo.id,
@@ -42,7 +48,9 @@ export default {
             description: this.todo.description,
             oldTitle: this.todo.title,
             oldDescription: this.todo.description,
-            needUpdate: false
+            needUpdate: false,
+            titleError: false,
+            descriptionError: false
         }
     },
     props: {
@@ -82,7 +90,7 @@ export default {
             }
             
             this.$emit('update', newTask)
-            
+
             this.needUpdate = false
             this.oldTitle = this.title
             this.oldDescription = this.description
@@ -90,7 +98,26 @@ export default {
         removeTodo() {
             this.$emit('removeTodo', this.todo.id)
         },
+        validData() {
+            if (!this.title) { 
+                this.titleError = true
+                return false
+            }
+            this.titleError = false
+
+            if (!this.description) { 
+                this.descriptionError = true
+                return false
+            }
+            this.descriptionError = false
+
+            return true
+        },
         isNeedUpdate() {
+            if (!this.validData()) {
+                return false
+            }
+
             if (this.title != this.oldTitle || this.description != this.oldDescription) {
                 return true
             } else {
