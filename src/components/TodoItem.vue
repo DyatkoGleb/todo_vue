@@ -8,6 +8,7 @@
             ref="todo"
         >
             <div>
+                <!-- TODO: унифицировать форму создания CreateEditTodoForm и переиспользовать -->
                 <my-input 
                     class="todo-item__title" 
                     v-model.trim="title" 
@@ -221,7 +222,9 @@ export default {
     cursor: pointer;
 }
 .todo-item__btn-update-wrapper {
-    padding: 10px 20px 0 10px;
+    display: flex;
+    justify-content: end;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
     transition: .2s;

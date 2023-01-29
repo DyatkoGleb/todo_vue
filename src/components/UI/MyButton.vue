@@ -19,7 +19,8 @@ export default {
 }
 .btn {
     height: max-content;
-    margin-bottom: 11px;
+    margin-bottom: 1px;
+    padding: 0;
     background: none;
     border: none;
     color: #777;
@@ -27,7 +28,7 @@ export default {
     cursor: pointer;
 }
 .btn:hover, .btn:focus {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     color: #eee;
     border-bottom: 1px solid #eee;
 }

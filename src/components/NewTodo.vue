@@ -1,11 +1,11 @@
 <template>
     <div class="todo-item" ref="todoItem">
-        <div v-if="!creating" class="todo-item__btn-add" @click="creatingNewTodo">
-            <svg width="101px" height="101px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <button v-if="!creating" class="todo-item__btn-add" @click="creatingNewTodo">
+            <svg width="101px" height="105px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="16" height="16" id="icon-bound" fill="none" />
                 <polygon points="14,7 9,7 9,2 7,2 7,7 2,7 2,9 7,9 7,14 9,14 9,9 14,9" />
             </svg>
-        </div>
+        </button>
 
         <my-form-wrapper v-else>
             <create-edit-todo-form :titleError="titleError" :descriptionError="descriptionError" @newTodo="createTodo"/>
@@ -82,11 +82,12 @@ export default {
 }
 .todo-item__btn-add {
     width: 100%;
-    text-align: center;
-    transition: .1s;
+    background: none;
     border: 1px solid #282828;
     border-radius: 12px;
     fill: #282828;
+    transition: .1s;
+    text-align: center;
 }
 .todo-item__btn-add:hover {
     fill: #333;

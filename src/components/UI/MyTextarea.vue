@@ -56,7 +56,6 @@ export default {
 textarea {
     display: block;
     width: 100%;
-    margin-bottom: 13px;
     background: none;
     border: none;
     border-bottom: 1px solid #282828;
@@ -64,11 +63,6 @@ textarea {
     resize: none;
     height: max-content;
     overflow: hidden;
-}
-textarea {
-    resize: none;
-    overflow: hidden;
-    margin-bottom: 10px;
 }
 textarea:hover, textarea:focus {
     border-bottom: 1px solid #eee;

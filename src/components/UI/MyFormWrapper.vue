@@ -14,7 +14,8 @@ export default {
 .form-wrapper{
     align-items: flex-end;
     width: 100%;
-    padding: 20px;
+    padding: 24px;
+    padding-bottom: 31px;
     border: 1px solid #282828;
     border-radius: 12px;
     cursor: pointer;
