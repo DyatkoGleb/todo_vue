@@ -17,7 +17,7 @@ export default {
     },
     data() {
         return {
-            value: this.titlinputValueeValue
+            value: this.inputValue
         }
     },
 	methods: {
@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .inputError {
-    border-bottom: 1px solid #800000;
+    border-bottom: 1px solid #800000 !important;
 }
 input {
     display: block;

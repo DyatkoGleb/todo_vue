@@ -8,7 +8,12 @@
             ref="todo"
         >
             <div>
-                <input class="todo-item__title" v-model.trim="title">
+                <my-input 
+                    class="todo-item__title" 
+                    v-model.trim="title" 
+                    :inputValue="title" 
+                    :inputError="titleError"
+                ></my-input>
                 <my-textarea 
                     class="todo-item__description" 
                     v-model.trim="description" 
@@ -35,11 +40,12 @@
 </template>
 
 <script>
+import MyInput from '@/components/UI/MyInput'
 import MyTextarea from '@/components/UI/MyTextarea'
 import MyButton from '@/components/UI/MyButton'
 
 export default {
-    components: { MyTextarea, MyButton },
+    components: { MyInput, MyTextarea, MyButton },
     data() {
         return {
             id: this.todo.id,
