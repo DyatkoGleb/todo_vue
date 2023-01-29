@@ -1,5 +1,5 @@
 <template>
-    <div class="todo-item">
+    <div class="todo-item" ref="todoItem">
         <div v-if="!creating" class="todo-item__btn-add" @click="creatingNewTodo">
             <svg width="101px" height="101px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect width="16" height="16" id="icon-bound" fill="none" />
@@ -28,6 +28,15 @@ export default {
         }
     },
     components: { MyFormWrapper, CreateEditTodoForm },
+    mounted() {
+        document.body.addEventListener('click', (event) => {
+            const isOutsideBlock = !event.composedPath().includes(this.$refs.todoItem)
+
+            if (isOutsideBlock) {
+                this.creating = false
+            } 
+        })
+    },
     methods: {
         creatingNewTodo() {
             this.creating = true
