@@ -78,7 +78,6 @@ export default {
     margin: 10px 0;
     border-radius: 12px;
     transition: .1s;
-    cursor: pointer;
 }
 .todo-item__btn-add {
     width: 100%;
@@ -88,6 +87,7 @@ export default {
     fill: #282828;
     transition: .1s;
     text-align: center;
+    cursor: pointer;
 }
 .todo-item__btn-add:hover {
     fill: #333;

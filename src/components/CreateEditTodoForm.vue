@@ -1,7 +1,7 @@
 <template>
     <div class="form">
         <div class="todo-item__inputs">
-            <my-input v-model.trim="inputValue" :inputValue="title" :inputError="titleError"></my-input>
+            <my-input v-model.trim="inputValue" :inputValue="title" :inputError="titleError" v-focus></my-input>
             <my-textarea v-model.trim="textareaValue" :textareaValue="description" :descriptionError="descriptionError"></my-textarea>
         </div>
 
