@@ -207,6 +207,7 @@ export default {
     padding: 8px;
     fill: rgb(121, 121, 121);
     opacity: 0;
+    cursor: pointer;
 }
 .todo-item__btn-remove:hover {
     fill: #bbbbbb;
