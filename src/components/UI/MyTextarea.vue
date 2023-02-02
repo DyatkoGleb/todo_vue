@@ -1,9 +1,10 @@
 <template>
     <textarea 
-        ref="textarea"
+        class="my-textarea"
         placeholder="Description" 
         maxlength="300"
         rows="1"
+        ref="textarea"
         :value="value"
 		@input="updateInput"
     >
@@ -53,7 +54,7 @@ export default {
 .textarea-error {
     border-bottom: 1px solid #800000 !important;
 }
-textarea {
+.my-textarea {
     display: block;
     width: 100%;
     background: none;
@@ -64,10 +65,10 @@ textarea {
     height: max-content;
     overflow: hidden;
 }
-textarea:hover, textarea:focus {
+.my-textarea:hover, .my-textarea:focus {
     border-bottom: 1px solid #eee;
 }
-textarea:hover::placeholder, textarea:focus::placeholder {
+.my-textarea:hover::placeholder, .my-textarea:focus::placeholder {
     color: #eee;
 }
 .error {

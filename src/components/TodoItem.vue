@@ -158,7 +158,7 @@ export default {
     border-radius: 12px;
     overflow: hidden;
     word-break: break-word;
-    background: linear-gradient(-45deg, #020080aa, #02008044, #02008033, #02008011, #181818, #181818, #181818, #181818, #181818, #181818, #181818);
+    background: linear-gradient(-45deg, #0d0c5f, #0f0e3b, #11112c, #17171c, #181818, #181818, #181818, #181818, #181818, #181818, #181818);
     overflow: hidden;
 }
 .todo-item__content {

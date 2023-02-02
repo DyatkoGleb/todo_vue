@@ -1,9 +1,9 @@
 <template>
     <input 
-        v-focus
-        ref="input"
+        class="my-input"
         type="text" 
         placeholder="Title"
+        ref="input"
         :value="value"
 		@input="updateInput"
     >
@@ -41,7 +41,7 @@ export default {
 .inputError {
     border-bottom: 1px solid #800000 !important;
 }
-input {
+.my-input {
     display: block;
     width: 100%;
     margin-bottom: 13px;
@@ -53,10 +53,10 @@ input {
     height: max-content;
     overflow: hidden;
 }
-input:hover, input:focus {
+.my-input:hover, .my-input:focus {
     border-bottom: 1px solid #eee;
 }
-input:hover::placeholder, input:focus::placeholder {
+.my-input:hover::placeholder, .my-input:focus::placeholder {
     color: #eee;
 }
 .error {
