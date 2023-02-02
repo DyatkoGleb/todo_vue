@@ -1,7 +1,6 @@
 <template>
     <textarea 
         class="my-textarea"
-        placeholder="Description" 
         maxlength="300"
         rows="1"
         ref="textarea"

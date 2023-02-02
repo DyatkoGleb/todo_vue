@@ -41,7 +41,7 @@ export default {
         },
         removeTodo(todoId) {
             this.$emit('removeTodo', todoId)
-        }
+        },
     },
     watch: {
         todoList() {
@@ -54,7 +54,7 @@ export default {
 <style scoped>
 .todo-list {
     width: 100%;
-    margin: 60px 5px 0 5px;
+    margin: 0 5px;
     background: transparent;
 }
 .todo-list-enter-active {

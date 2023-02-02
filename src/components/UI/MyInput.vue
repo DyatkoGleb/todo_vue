@@ -2,7 +2,6 @@
     <input 
         class="my-input"
         type="text" 
-        placeholder="Title"
         ref="input"
         :value="value"
 		@input="updateInput"

@@ -10,13 +10,15 @@
             <div>
                 <!-- TODO: унифицировать форму создания CreateEditTodoForm и переиспользовать -->
                 <my-input 
-                    class="todo-item__title" 
+                    class="todo-item__title"
+                    placeholder="Title"
                     v-model.trim="title" 
                     :inputValue="title" 
                     :inputError="titleError"
                 ></my-input>
                 <my-textarea 
-                    class="todo-item__description" 
+                    class="todo-item__description"
+                    placeholder="Description"
                     v-model.trim="description" 
                     :textareaValue="description" 
                     :descriptionError="descriptionError"

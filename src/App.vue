@@ -1,27 +1,34 @@
 <template>
 	<div class="app">
 		<div class="app__wrapper">
-			<todo-list
-				:todoList="todoList"
-				@update="updateTodo"
-				@createTodo="createTodo"
-				@removeTodo="removeTodo"
-			/>
-			<filter-list/>
+			<todo-search v-model="searchQuery"></todo-search>
+
+			<div class="app__todo-wrapper">
+				<todo-list
+					:todoList="sortedAndSearchedPosts"
+					@update="updateTodo"
+					@createTodo="createTodo"
+					@removeTodo="removeTodo"
+					@inputSearch="inputSearch"
+				/>
+				<filter-list/>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import TodoSearch from '@/components/TodoSearch'
 import TodoList from '@/components/TodoList.vue'
 import FilterList from '@/components/FilterList.vue'
 import axios from 'axios'
 
 export default {
 	name: 'App',
-	components: { TodoList, FilterList },
+	components: { TodoSearch, TodoList, FilterList },
 	data() {
 		return {
+			searchQuery: '',
 			todoList: []
 		}
 	},
@@ -74,6 +81,22 @@ export default {
 					alert(err)
 				})
 		}
+	},
+	computed: {
+		sortedPost() {
+			return this.todoList
+		},
+		sortedAndSearchedPosts() {
+			const searchByTitle = this.sortedPost.filter(todo => todo.title.toLowerCase().includes(this.searchQuery.toLowerCase()))
+			const searchByDescription = this.sortedPost.filter(todo => todo.description.toLowerCase().includes(this.searchQuery.toLowerCase()))
+		
+			const result = [...searchByTitle, ...searchByDescription]
+			
+			const uniq = new Set(result.map(e => JSON.stringify(e)));
+			const res = Array.from(uniq).map(e => JSON.parse(e));
+
+			return res
+		}
 	}
 }
 </script>
@@ -92,9 +115,12 @@ body {
 	user-select: none;
 }
 .app__wrapper {
-	display: flex;
 	max-width: 1000px;
-	width: 100%;
 	margin: auto;
+	margin-top: 60px;
+}
+.app__todo-wrapper {
+	display: flex;
+	width: 100%;
 }
 </style>

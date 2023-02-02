@@ -1,8 +1,19 @@
 <template>
     <div class="form">
         <div class="todo-item__inputs">
-            <my-input v-model.trim="inputValue" :inputValue="title" :inputError="titleError" v-focus></my-input>
-            <my-textarea v-model.trim="textareaValue" :textareaValue="description" :descriptionError="descriptionError"></my-textarea>
+            <my-input 
+                placeholder="Title"
+                v-focus
+                v-model.trim="inputValue" 
+                :inputValue="title" 
+                :inputError="titleError" 
+            ></my-input>
+            <my-textarea 
+                placeholder="Description"
+                v-model.trim="textareaValue" 
+                :textareaValue="description" 
+                :descriptionError="descriptionError"
+            ></my-textarea>
         </div>
 
         <my-button @click="newTodo">Add</my-button>
@@ -18,7 +29,7 @@ export default {
     components: { MyInput, MyTextarea, MyButton },
     props: { 
         title: { type: String }, 
-        description: { type: String } ,
+        description: { type: String },
         titleError: { type: Boolean },
         descriptionError: { type: Boolean },
     },
