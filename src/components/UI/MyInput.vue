@@ -43,7 +43,6 @@ export default {
 .my-input {
     display: block;
     width: 100%;
-    margin-bottom: 13px;
     background: none;
     border: none;
     border-bottom: 1px solid #282828;

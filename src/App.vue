@@ -1,15 +1,19 @@
 <template>
 	<div class="app">
 		<div class="app__wrapper">
-			<todo-search v-model="searchQuery"></todo-search>
-			<filter-list/>
+			<div class="app__filter-block d-flex">
+				<todo-search v-model="searchQuery"/>
 
+				<my-select 
+					v-model="selectedSort"	
+					:options="sortOptions"
+				/>
+			</div>
 			<todo-list
 				:todoList="sortedAndSearchedPosts"
 				@update="updateTodo"
 				@createTodo="createTodo"
 				@removeTodo="removeTodo"
-				@inputSearch="inputSearch"
 			/>
 		</div>
 	</div>
@@ -17,17 +21,22 @@
 
 <script>
 import TodoSearch from '@/components/TodoSearch'
+import MySelect from '@/components/UI/MySelect.vue'
 import TodoList from '@/components/TodoList.vue'
-import FilterList from '@/components/FilterList.vue'
 import axios from 'axios'
 
 export default {
 	name: 'App',
-	components: { TodoSearch, TodoList, FilterList },
+	components: { TodoSearch, TodoList, MySelect },
 	data() {
 		return {
 			searchQuery: '',
-			todoList: []
+			todoList: [],
+			selectedSort: '',
+			sortOptions: [
+				{ value: 'do', name: 'Do' },
+				{ value: 'done', name: 'Done' },
+			],
 		}
 	},
 	mounted() {
@@ -82,6 +91,16 @@ export default {
 	},
 	computed: {
 		sortedPost() {
+			if (this.selectedSort === 'do') {
+				return [...this.todoList].sort((prev, next) => {
+					return prev.done === next.done ? 0 : prev.done ? -1 : 1
+				})
+			} else if (this.selectedSort === 'done') {
+				return [...this.todoList].sort((prev, next) => {
+					return prev.done === next.done ? 1 : prev.done ? 0 : -1
+				})
+			}
+
 			return this.todoList
 		},
 		sortedAndSearchedPosts() {
@@ -112,10 +131,17 @@ body {
 	font-family: sans-serif;
 	user-select: none;
 }
+.d-flex {
+	display: flex;
+}
 .app__wrapper {
 	max-width: 600px;
+	padding: 0 10px;
 	width: 100%;
 	margin: auto;
-	margin-top: 60px;
+	margin-top: 40px;
+}
+.app__filter-block {
+	align-items: flex-end;
 }
 </style>

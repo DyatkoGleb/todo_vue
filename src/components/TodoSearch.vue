@@ -1,5 +1,9 @@
 <template>
-        <my-input v-model.trim="inputValue" placeholder="Search"></my-input>
+        <my-input 
+            v-model.trim="inputValue" 
+            placeholder="Search"
+            class="input-search"
+        />
 </template>
 
 <script>
@@ -20,5 +24,7 @@ export default {
 </script>
 
 <style scoped>
-
+.input-search {
+    font-size: 18px;
+}
 </style>

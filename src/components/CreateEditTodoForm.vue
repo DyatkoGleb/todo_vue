@@ -2,6 +2,7 @@
     <div class="form">
         <div class="todo-item__inputs">
             <my-input 
+                class="input-title"
                 placeholder="Title"
                 v-focus
                 v-model.trim="inputValue" 
@@ -61,5 +62,8 @@ export default {
     width: 100%;
     margin-top: 2px;
     margin-right: 20px;
+}
+.input-title {
+    margin-bottom: 13px;
 }
 </style>
