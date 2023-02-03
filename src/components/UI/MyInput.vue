@@ -1,6 +1,6 @@
 <template>
     <input 
-        class="my-input"
+        class="input"
         type="text" 
         ref="input"
         :value="value"
@@ -40,7 +40,7 @@ export default {
 .inputError {
     border-bottom: 1px solid #800000 !important;
 }
-.my-input {
+.input {
     display: block;
     width: 100%;
     background: none;
@@ -51,10 +51,10 @@ export default {
     height: max-content;
     overflow: hidden;
 }
-.my-input:hover, .my-input:focus {
+.input:hover, .input:focus {
     border-bottom: 1px solid #eee;
 }
-.my-input:hover::placeholder, .my-input:focus::placeholder {
+.input:hover::placeholder, .input:focus::placeholder {
     color: #eee;
 }
 .error {

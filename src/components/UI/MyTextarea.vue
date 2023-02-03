@@ -1,6 +1,6 @@
 <template>
     <textarea 
-        class="my-textarea"
+        class="textarea"
         maxlength="300"
         rows="1"
         ref="textarea"
@@ -53,7 +53,7 @@ export default {
 .textarea-error {
     border-bottom: 1px solid #800000 !important;
 }
-.my-textarea {
+.textarea {
     display: block;
     width: 100%;
     background: none;
@@ -64,10 +64,10 @@ export default {
     height: max-content;
     overflow: hidden;
 }
-.my-textarea:hover, .my-textarea:focus {
+.textarea:hover, .textarea:focus {
     border-bottom: 1px solid #eee;
 }
-.my-textarea:hover::placeholder, .my-textarea:focus::placeholder {
+.textarea:hover::placeholder, .textarea:focus::placeholder {
     color: #eee;
 }
 .error {
