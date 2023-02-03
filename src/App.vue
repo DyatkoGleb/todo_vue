@@ -2,17 +2,15 @@
 	<div class="app">
 		<div class="app__wrapper">
 			<todo-search v-model="searchQuery"></todo-search>
+			<filter-list/>
 
-			<div class="app__todo-wrapper">
-				<todo-list
-					:todoList="sortedAndSearchedPosts"
-					@update="updateTodo"
-					@createTodo="createTodo"
-					@removeTodo="removeTodo"
-					@inputSearch="inputSearch"
-				/>
-				<filter-list/>
-			</div>
+			<todo-list
+				:todoList="sortedAndSearchedPosts"
+				@update="updateTodo"
+				@createTodo="createTodo"
+				@removeTodo="removeTodo"
+				@inputSearch="inputSearch"
+			/>
 		</div>
 	</div>
 </template>
@@ -115,12 +113,9 @@ body {
 	user-select: none;
 }
 .app__wrapper {
-	max-width: 1000px;
+	max-width: 600px;
+	width: 100%;
 	margin: auto;
 	margin-top: 60px;
-}
-.app__todo-wrapper {
-	display: flex;
-	width: 100%;
 }
 </style>

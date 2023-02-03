@@ -54,7 +54,6 @@ export default {
 <style scoped>
 .todo-list {
     width: 100%;
-    margin: 0 5px;
     background: transparent;
 }
 .todo-list-enter-active {
